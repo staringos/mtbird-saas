@@ -15,11 +15,9 @@
 
 </div>
 
-# MtBird
+# MtBird [中文文档](./README-CN.md)
 
 MtBird-SaaS is a low-code platform for HTML Page、Website. We help to build page without code or less code. It also support Wechat Mini-Program. This is fully repository, the main frontend editor is isolated, see this [mtbird editor](https://github.com/staringos/mtbird)
-
-[中文文档](./README-CN.md)
 
 <img src="https://mtbird-cdn.staringos.com/product/movies/example-mini-2.gif" />
 
@@ -27,15 +25,44 @@ MtBird-SaaS is a low-code platform for HTML Page、Website. We help to build pag
 
 <p></p>
 
-## Getting Start
+[Online Product](https://mtbird.staringos.com)
 
-Require NodeJS version: >=18
+## Getting Start
 
 ```shell
 git clone https://github.com/staringos/mtbird-saas
 ```
 
-Change config from `.env`
+### 1. Start in docker
+
+Start server
+
+```shell
+yarn build-compose
+yarn up-compose
+```
+
+### 2. Start Manually
+
+Require NodeJS version: >=18
+
+1. Install dependencies
+
+```shell
+yarn
+```
+
+2. Start server
+
+```shell
+yarn run start
+```
+
+## Configuration
+
+Config file from `.env`
+
+Requirement:
 
 ```shell
 # mysql 数据库链接
@@ -50,22 +77,6 @@ BUCKET_REGISTRY=
 # CDN URL
 NEXT_PUBLIC_CDN_URL=
 ```
-
-Start server
-
-```shell
-yarn build-compose
-yarn up-compose
-```
-
-
-Initialize database
-
-```shell
-yarn run db-push
-yarn run db-seed
-```
-
 
 Open: http://localhost:3000/
 
