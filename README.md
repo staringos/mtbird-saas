@@ -51,6 +51,7 @@ BUCKET_REGISTRY=
 NEXT_PUBLIC_CDN_URL=
 ```
 
+Start server
 
 ```shell
 yarn build-compose
@@ -64,9 +65,6 @@ Initialize database
 yarn run db-push
 yarn run db-seed
 ```
-
-Start server
-
 
 
 Open: http://localhost:3000/
