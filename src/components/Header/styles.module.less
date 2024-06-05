@@ -1,0 +1,32 @@
+.header {
+  background: #fff !important;
+  display: flex;
+  padding-left: 0;
+  height: var(--header-height) !important;
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+    cursor: pointer;
+
+    .logo {
+      background: url(/statics/logo.png) no-repeat;
+      height: 50px;
+      width: 160px;
+      background-size: auto 100%;
+      background-position: center;
+    }
+  }
+
+  .headerMenu {
+    flex: 1;
+  }
+
+  :global .ant-menu-title-content {
+    line-height: var(--header-height);
+    display: flex;
+  }
+}

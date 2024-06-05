@@ -1,0 +1,51 @@
+.upgradeBox {
+  display: flex;
+  width: 230px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-3);
+  margin-right: 10px;
+  flex-direction: column;
+  padding: 10px;
+
+  .upgradeBoxTitleArea {
+    text-align: center;
+  }
+
+  .upgradeBoxList {
+    list-style: none;
+    padding-left: 0;
+    flex-direction: column;
+    height: 352px;
+
+    .upgradeBoxListItem {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .upgradeBoxListTitle {
+      display: inline-block;
+    }
+  }
+
+  .upgradeBoxPriceArea {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .discount {
+      line-height: 26px;
+    }
+
+    .price {
+      font-size: 22px;
+      color: red;
+      font-weight: 700;
+    }
+  }
+
+  .upgradeBoxButton {
+    margin-top: 20px;
+  }
+}

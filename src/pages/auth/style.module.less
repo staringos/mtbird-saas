@@ -1,0 +1,156 @@
+.loginWrapper {
+  width: 100vw;
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .audit {
+  }
+:global {
+  .loginBtn {
+    // width: 100%;
+    // height: 32px;
+    // flex-shrink: 0;
+    // color: #FFF;
+    // font-size: 18px;
+    // font-weight: 600;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // border-radius: 24px;
+    // background: linear-gradient(180deg, #47AFFF 0%, #178AF3 100%);
+    // outline: none;
+    // border: none;
+    // margin-top: 40px;
+  }
+  .appleLogin {
+    background: #fff !important;
+    color: #333;
+    border: #dcdcdc 1px solid ;
+    margin-top: 12px;
+  }
+}
+
+  .loginWrapperBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .loginContainer {
+    position: absolute;
+    left: calc(vw-30px);
+    right: calc(vh-30px);
+    width: 600px;
+    height: 370px;
+    z-index: 2;
+    background-color: white;
+    border-radius: 20px;
+    flex-direction: row;
+    display: flex;
+    overflow: hidden;
+
+    .loginImage {
+      flex: 1;
+      overflow: hidden;
+      background: url("/statics/images/login2.png") content-box;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: var(--mtbird-primary-1);
+    }
+  }
+
+  .loginFormWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    .loginTypeSwitch {
+      margin-bottom: 30px;
+      width: 100%;
+      display: flex;
+
+      :global {
+        .ant-radio-button-wrapper {
+          flex: 1;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .loginBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .loginBoxLogo {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      .logo {
+        height: 68px;
+        width: auto;
+      }
+    }
+
+    .loginBoxForm {
+      padding: 30px;
+    }
+  }
+
+  .weixinLogin {
+    min-height: 144px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .loginContainer {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+
+      .loginImage {
+        display: none;
+      }
+
+      .loginBoxLogo {
+        // display: none;
+        flex: unset;
+        margin: 50px 0
+      }
+
+      .loginFormWrapper {
+        // flex: 1
+      }
+    }
+  }
+}
+
+.serviceAgreement {
+  color: #00000073;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 14px;
+  align-self: flex-start;
+  position: absolute;
+  bottom: 10px;
+
+  a {
+    color: #000000a6;
+  }
+}

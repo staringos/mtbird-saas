@@ -1,0 +1,30 @@
+version: "3.1"
+services:
+  mtbird-app:
+    env_file: ./.env
+    container_name: mtbird-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:9000
+
+  mysql:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      "MYSQL_DATABASE": mtbird
+      "MYSQL_ROOT_PASSWORD": root
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    volumes:
+      - .scripts/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"

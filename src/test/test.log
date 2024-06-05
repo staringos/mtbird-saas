@@ -1,0 +1,93 @@
+1|mtbird-saas  | begin decrypt hash= 4bae4627061556235d9fa69d72a5b7fd171cb1c4 timestamp= 1671592565 nonce= 548156988 xml= <xml>
+1|mtbird-saas  |     <AppId><![CDATA[wx1c862dea49388518]]></AppId>
+1|mtbird-saas  |     <Encrypt><![CDATA[Th3xU3Q2i+5ES9dl+fCCIvkt5+58OVjzQZvYezN31IRTeP9hnQKdQ7DSb2QvCu/iCeeWuSSrvb//gTUESrej4I6tFhUfm1QXheSatV5FIt4kjnb3oKU6BpibVOZMMLQjutUbNmwJ6zdeounM5dZWWGf9HqdT7r78IeUHqpomUpiwfwBKvDi0xPKdh28OHCTi8uaH5xq9c5iIkOfKohUYTu4lJD46QEzFoGz+88OlSsqdM7Oho4hCS8eKC1Y9B3HBw8a33ILgv/t2DjhtUK3+XEP77e0IZQbMRIISP3422FbIi8AWO/ZBMmFCIJMnAypSMANQ1yAxOwG6ZCBxhzD3tlnhistBwZnfl56+68l/UlV6LT0k413qZPiRCzbpdzDWrs/CiWgf+gozXb3nqdOYRpocjwaK+bIg1pYEHQqlII76BGg89mHORJF6TduXnm0CCntT8YjsVSZ+GJ6VuB0+HOjS/Wjlkw9zrIiv8dA78O/VI9QSXeTHM4/Bf5kGZkwp+Ld4SdluUrsdGmkNdBHrMVG5VPUM6moTvtmHF30++Khaq80r8HW+3pH1bmYPMGmKi3qeI9rR2TysGBewFlqjWUjr/BgCNUcvfROdd0jqBEqxQ55UQsrH4zx7wgT5CVjORTtetVay1Xq6isOs7UhJhQTeaWf0RiHoWITqSJTYBGetmvvz1G400Dm+h3xRGg1w5MDuSqgoL/r6LWWxyvNEQo0STSWOR/f1Z+K8hRrob0x3dYlQ2LXwaQlWlzP393OtLQ+nnxYLfQPI3sOkcyNoySl3Vl16KGgX+yL4S2UhQqkAzlwLxjd0sI67P/QIcn4ZvJCLoloWemcot5arEYaaAw==]]></Encrypt>
+1|mtbird-saas  | </xml>
+1|mtbird-saas  | parsed xml= {
+1|mtbird-saas  |   AppId: 'wx1c862dea49388518',
+1|mtbird-saas  |   Encrypt: 'Th3xU3Q2i+5ES9dl+fCCIvkt5+58OVjzQZvYezN31IRTeP9hnQKdQ7DSb2QvCu/iCeeWuSSrvb//gTUESrej4I6tFhUfm1QXheSatV5FIt4kjnb3oKU6BpibVOZMMLQjutUbNmwJ6zdeounM5dZWWGf9HqdT7r78IeUHqpomUpiwfwBKvDi0xPKdh28OHCTi8uaH5xq9c5iIkOfKohUYTu4lJD46QEzFoGz+88OlSsqdM7Oho4hCS8eKC1Y9B3HBw8a33ILgv/t2DjhtUK3+XEP77e0IZQbMRIISP3422FbIi8AWO/ZBMmFCIJMnAypSMANQ1yAxOwG6ZCBxhzD3tlnhistBwZnfl56+68l/UlV6LT0k413qZPiRCzbpdzDWrs/CiWgf+gozXb3nqdOYRpocjwaK+bIg1pYEHQqlII76BGg89mHORJF6TduXnm0CCntT8YjsVSZ+GJ6VuB0+HOjS/Wjlkw9zrIiv8dA78O/VI9QSXeTHM4/Bf5kGZkwp+Ld4SdluUrsdGmkNdBHrMVG5VPUM6moTvtmHF30++Khaq80r8HW+3pH1bmYPMGmKi3qeI9rR2TysGBewFlqjWUjr/BgCNUcvfROdd0jqBEqxQ55UQsrH4zx7wgT5CVjORTtetVay1Xq6isOs7UhJhQTeaWf0RiHoWITqSJTYBGetmvvz1G400Dm+h3xRGg1w5MDuSqgoL/r6LWWxyvNEQo0STSWOR/f1Z+K8hRrob0x3dYlQ2LXwaQlWlzP393OtLQ+nnxYLfQPI3sOkcyNoySl3Vl16KGgX+yL4S2UhQqkAzlwLxjd0sI67P/QIcn4ZvJCLoloWemcot5arEYaaAw=='
+1|mtbird-saas  | }
+1|mtbird-saas  | calculated hash= 4bae4627061556235d9fa69d72a5b7fd171cb1c4
+1|mtbird-saas  | plain_text= <xml><AppId><![CDATA[wx1c862dea49388518]]></AppId>
+1|mtbird-saas  | <CreateTime>1671592565</CreateTime>
+1|mtbird-saas  | <InfoType><![CDATA[authorized]]></InfoType><AuthorizerAppid><![CDATA[wxd1d53a6e35dc1f49]]></AuthorizerAppid><AuthorizationCode><![CDATA[queryauthcode@@@tJbiVgtx-b9wkRfEsWI1zMVRHfe6lBqkEI389gkvErctSRn0zNInwsrzIqh02oPywxmFboLcvhf4328coPjpmQ]]></AuthorizationCode><AuthorizationCodeExpiredTime><![CDATA[1671596165]]></AuthorizationCodeExpiredTime><PreAuthCode><![CDATA[preauthcode@@@FWHxl6RkIDfBRu_EhXA-ViYbHvQlPL0t-cqWQ2Drx5p5qxgo-VYcV1nhCVyhAjJIbY7n3h4omVCJ-eVzAvC8CQ]]></PreAuthCode></xml>
+1|mtbird-saas  | 3. formatData: {
+1|mtbird-saas  |   AppId: 'wx1c862dea49388518',
+1|mtbird-saas  |   CreateTime: '1671592565',
+1|mtbird-saas  |   InfoType: 'authorized',
+1|mtbird-saas  |   AuthorizerAppid: 'wxd1d53a6e35dc1f49',
+1|mtbird-saas  |   AuthorizationCode: 'queryauthcode@@@tJbiVgtx-b9wkRfEsWI1zMVRHfe6lBqkEI389gkvErctSRn0zNInwsrzIqh02oPywxmFboLcvhf4328coPjpmQ',
+1|mtbird-saas  |   AuthorizationCodeExpiredTime: '1671596165',
+1|mtbird-saas  |   PreAuthCode: 'preauthcode@@@FWHxl6RkIDfBRu_EhXA-ViYbHvQlPL0t-cqWQ2Drx5p5qxgo-VYcV1nhCVyhAjJIbY7n3h4omVCJ-eVzAvC8CQ'
+1|mtbird-saas  | }
+1|mtbird-saas  | [1] callback about authorized: {}
+1|mtbird-saas  | (node:1926027) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+1|mtbird-saas  | (Use `node --trace-deprecation ...` to show where the warning was created)
+1|mtbird-saas  | begin decrypt hash= 62d832dfc1c1bb43c9b45e2f69708348bc3503a3 timestamp= 1671592565 nonce= 194535518 xml= <xml>
+1|mtbird-saas  |     <AppId><![CDATA[wx1c862dea49388518]]></AppId>
+1|mtbird-saas  |     <Encrypt><![CDATA[/4VyvofBQzDJRRpvGuv9SaBKOMuH9pJBTElW8zHdb4UxtpqHGGu3FzW6oPFsGdwhz5kwWYgoo/GRfvZhpYnocAbDK3jQHA4u8kmjFrdB7hbgeeUz+6eO0VHAF6+n5pdXQaKDTXph63KgimoFfjAenNHuhHZuElT282mM23uxynkhPug5aTbyG587IAEM2XD0ASdNIHax1/n8XRsUZJsST0PiD86fX07E21JkTtax6buvAW2PtWZvwJputWmoRRue0s1IBDMI1+JtkGdL1ra5BVf8T02x65BKYTKUclKYVl5+Rnj8uMEGsFhoEDEsZWQVyxhGYvtxFyyEigmV2vs+fIW5c83GAjZ+ItSkLZ53IyUuJNP5frgn7Zr5IqFGO9BDLPFvN70IXZocGtNTQzgZ8P/YB7VgMEpKoje/hDukHOiYEy7Xc2w7Xq4rmThp2JCLA6RnYgUqcW7IsAUarWcRUdP0UvBkv7CBs/n7SK3CSgn3Xy1F71uIlrXliFwU2AU8crzKQWbhjwNguAcnxa5BM8xcLUIvYysDc7nPDW2FWLSvqSNRtaievOUzeCIsszwbf6U63sQmqyir67W2xZIe2oZ/Pz4T1e/gaVNTbLCCsnBTUWQ7s4xWWv5jBb9l+Frh]]></Encrypt>
+1|mtbird-saas  | </xml>
+1|mtbird-saas  | parsed xml= {
+1|mtbird-saas  |   AppId: 'wx1c862dea49388518',
+1|mtbird-saas  |   Encrypt: '/4VyvofBQzDJRRpvGuv9SaBKOMuH9pJBTElW8zHdb4UxtpqHGGu3FzW6oPFsGdwhz5kwWYgoo/GRfvZhpYnocAbDK3jQHA4u8kmjFrdB7hbgeeUz+6eO0VHAF6+n5pdXQaKDTXph63KgimoFfjAenNHuhHZuElT282mM23uxynkhPug5aTbyG587IAEM2XD0ASdNIHax1/n8XRsUZJsST0PiD86fX07E21JkTtax6buvAW2PtWZvwJputWmoRRue0s1IBDMI1+JtkGdL1ra5BVf8T02x65BKYTKUclKYVl5+Rnj8uMEGsFhoEDEsZWQVyxhGYvtxFyyEigmV2vs+fIW5c83GAjZ+ItSkLZ53IyUuJNP5frgn7Zr5IqFGO9BDLPFvN70IXZocGtNTQzgZ8P/YB7VgMEpKoje/hDukHOiYEy7Xc2w7Xq4rmThp2JCLA6RnYgUqcW7IsAUarWcRUdP0UvBkv7CBs/n7SK3CSgn3Xy1F71uIlrXliFwU2AU8crzKQWbhjwNguAcnxa5BM8xcLUIvYysDc7nPDW2FWLSvqSNRtaievOUzeCIsszwbf6U63sQmqyir67W2xZIe2oZ/Pz4T1e/gaVNTbLCCsnBTUWQ7s4xWWv5jBb9l+Frh'
+1|mtbird-saas  | }
+1|mtbird-saas  | calculated hash= 62d832dfc1c1bb43c9b45e2f69708348bc3503a3
+1|mtbird-saas  | plain_text= <xml><AppId><![CDATA[wx1c862dea49388518]]></AppId>
+1|mtbird-saas  | <CreateTime>1671592565</CreateTime>
+1|mtbird-saas  | <InfoType><![CDATA[notify_third_fastregisterbetaapp]]></InfoType><appid><![CDATA[wxd1d53a6e35dc1f49]]></appid>
+1|mtbird-saas  | <status>0</status>
+1|mtbird-saas  | <msg><![CDATA[OK]]></msg>
+1|mtbird-saas  | <info>
+1|mtbird-saas  | <unique_id><![CDATA[BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq]]></unique_id>
+1|mtbird-saas  | <name><![CDATA[temtbird的试用小程序]]></name>
+1|mtbird-saas  | </info>
+1|mtbird-saas  | </xml>
+1|mtbird-saas  | 3. formatData: {
+1|mtbird-saas  |   AppId: 'wx1c862dea49388518',
+1|mtbird-saas  |   CreateTime: '1671592565',
+1|mtbird-saas  |   InfoType: 'notify_third_fastregisterbetaapp',
+1|mtbird-saas  |   appid: 'wxd1d53a6e35dc1f49',
+1|mtbird-saas  |   status: '0',
+1|mtbird-saas  |   msg: 'OK',
+1|mtbird-saas  |   info: '\n' +
+1|mtbird-saas  |     '<unique_id><![CDATA[BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq]]></unique_id>\n' +
+1|mtbird-saas  |     '<name><![CDATA[temtbird的试用小程序]]></name>\n'
+1|mtbird-saas  | }
+1|mtbird-saas  | [0] callback notify_third_fastregisterbetaapp: {
+1|mtbird-saas  |   unique_id: 'BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq',
+1|mtbird-saas  |   name: 'temtbird的试用小程序'
+1|mtbird-saas  | }
+1|mtbird-saas  | [1] Enter authed callback: {
+1|mtbird-saas  |   unique_id: 'BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq',
+1|mtbird-saas  |   name: 'temtbird的试用小程序'
+1|mtbird-saas  | } BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq
+1|mtbird-saas  | [1.1] Query result: {
+1|mtbird-saas  |   id: 'clbx31d630000vv4r4gdqnrpl',
+1|mtbird-saas  |   creatorId: null,
+1|mtbird-saas  |   appId: 'd3a4a7ee-7da1-46b5-bc42-5792f35f4d58',
+1|mtbird-saas  |   status: 'preAuth',
+1|mtbird-saas  |   wxUniqueId: 'BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq',
+1|mtbird-saas  |   authorizeUrl: 'https://mp.weixin.qq.com/wxawap/fastregistertpbeta?action=create&create_token=BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq#wechat_redirect',
+1|mtbird-saas  |   name: null,
+1|mtbird-saas  |   wxAppId: null,
+1|mtbird-saas  |   version: null,
+1|mtbird-saas  |   createdAt: 2022-12-21T03:15:38.092Z,
+1|mtbird-saas  |   updatedAt: 2022-12-21T03:15:38.092Z
+1|mtbird-saas  | }
+1|mtbird-saas  | [2] Update authed status success: {
+1|mtbird-saas  |   id: 'clbx31d630000vv4r4gdqnrpl',
+1|mtbird-saas  |   creatorId: null,
+1|mtbird-saas  |   appId: 'd3a4a7ee-7da1-46b5-bc42-5792f35f4d58',
+1|mtbird-saas  |   status: 'registedBeta',
+1|mtbird-saas  |   wxUniqueId: 'BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq',
+1|mtbird-saas  |   authorizeUrl: 'https://mp.weixin.qq.com/wxawap/fastregistertpbeta?action=create&create_token=BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq#wechat_redirect',
+1|mtbird-saas  |   name: 'temtbird的试用小程序',
+1|mtbird-saas  |   wxAppId: null,
+1|mtbird-saas  |   version: null,
+1|mtbird-saas  |   createdAt: 2022-12-21T03:15:38.092Z,
+1|mtbird-saas  |   updatedAt: 2022-12-21T03:16:05.984Z
+1|mtbird-saas  | }
+1|mtbird-saas  | [get3rdAccessToken] accessToken3rd: 63_2OHzAaMgSPJgdakG55U0pdLsKfDBTX04wjJXbwura45-ShNN8842LjP6m_If5rnkdHNA44XjsDGf867mUa23YBU48ZZIVIeT9NoxinyA9XxBBihhd5QBe1yK3dsDPQiACAIUV
+1|mtbird-saas  | [commitCodeToMP 1]: 63_2OHzAaMgSPJgdakG55U0pdLsKfDBTX04wjJXbwura45-ShNN8842LjP6m_If5rnkdHNA44XjsDGf867mUa23YBU48ZZIVIeT9NoxinyA9XxBBihhd5QBe1yK3dsDPQiACAIUV undefined
+1|mtbird-saas  | [getCustomerMPAPIAccessToken 1] customerAccessToken: null
+1|mtbird-saas  | [getCustomerMPAPIAccessToken 2] refreshToken: null
+1|mtbird-saas  | [getCustomerMPAPIAccessToken 3] wxAuth: null

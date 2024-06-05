@@ -1,0 +1,238 @@
+.layout {
+  padding: 0 16px;
+  // height: 100%;
+  background: url(https://mtbird-cdn.staringos.com/oXKKQK1b.png), lightgray 50% / cover no-repeat;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 100vh;
+  padding-bottom: 24px;
+  overflow-y: scroll;
+}
+
+.nativeIos {
+  padding-top: constant(safe-area-inset-top); /*兼容 iOS<11.2 */
+  padding-top: env(safe-area-inset-top); /* 兼容iOS>= 11.2*/
+}
+
+.header {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+.banner {
+  margin: 12px 0;
+  img {
+    width: 100%;
+  }
+}
+
+.subtitle {
+  color: #192B3A;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px; /* 171.429% */
+  margin-bottom: 12px;
+}
+
+.planContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+
+  .planItem {
+    border-radius: 12.519px;
+    border: 1.043px solid #FFF;
+    background: linear-gradient(167deg, #DFF9FF 0%, #FFF 98.65%);
+    height: 110px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .value {
+      margin-top: 15px;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: url(https://mtbird-cdn.staringos.com/T9qM52qw.png);
+        background-size: 100%;
+        margin-right: 6px;
+      }
+    }
+
+    .name {
+      color: #747A86;
+      font-size: 12px;
+    }
+
+    .price {
+      height: 32px;
+      background: linear-gradient(86deg, #A5DBFF 2.34%, #D6EEFF 97.44%);
+      stroke-width: 1px;
+      stroke: #FFF;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      color: #1F8DF2;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    &.planItemSelected {
+      border: 2px solid #1F8DF2;
+      background: linear-gradient(167deg, #BEF3FF 0%, #EDFCFF 98.65%);
+    }
+  }
+
+  .daysPlanItem {
+    border-radius: 12.519px;
+    border: 1.043px solid #FFF;
+    background: linear-gradient(167deg, #DFF9FF 0%, #FFF 98.65%);
+    height: 110px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px 0;
+
+    &.planItemSelected {
+      border: 2px solid #1F8DF2;
+      background: linear-gradient(167deg, #BEF3FF 0%, #EDFCFF 98.65%);
+    }
+
+    .value {
+      font-weight: 700;
+    }
+
+    .price {
+      height: 32px;
+      stroke-width: 1px;
+      stroke: #FFF;
+      width: 100%;
+      color: #1F8DF2;
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .originalPrice {
+      color: #666;
+      text-decoration: line-through;;
+    }
+  }
+}
+
+.payContainer {
+  .payButton {
+    width: 100%;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    margin-top: 24px;
+    background: linear-gradient(180deg, #47AFFF 0%, #178AF3 100%);
+  
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .payWayContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    .pay {
+      width: 48%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 24px;
+      height: 48px;
+
+      color: #FFF;
+      font-size: 18px;
+      font-weight: 600;
+
+      i {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-size: 100%;
+        margin-right: 8px;
+      }
+
+
+      &.wechatPay {
+        background: linear-gradient(180deg, #40D999 0%, #11C358 100%);
+        i {
+          background-image: url(https://mtbird-cdn.staringos.com/efC6UWk1.png);
+        }
+      }
+
+      &.aliPay {
+        background: linear-gradient(180deg, #47AFFF 0%, #178AF3 100%);
+        i {
+          background-image: url(https://mtbird-cdn.staringos.com/CLES4tae.png);
+        }
+      }
+    }
+  }
+}
+
+.bottomImg {
+  width: 100%;
+  padding: 16px 0;
+  // padding-bottom: 24px;
+  img {
+    width: 100%;
+  }
+}
+
+.payTip {
+  color: #747A86;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.wechatQrcodeModal {
+  :global {
+    .ant-modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ant-modal-content {
+      background: url(https://mtbird-cdn.staringos.com/oXKKQK1b.png), lightgray 50% / cover no-repeat;
+    }
+  }
+}

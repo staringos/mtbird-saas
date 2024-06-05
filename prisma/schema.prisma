@@ -1,0 +1,867 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  // binaryTargets = ["rhel-openssl-1.0.x", "debian-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Page {
+  id                 String        @id @default(cuid())
+  title              String
+  type               String?       @default("mobile") /// 1. mobile 2. pc 3. form 4. dashboard
+  desc               String?
+  avatar             String?
+  appId              String?
+  creatorId          String?
+  status             Int?          @default(0) /// -1 已删除 0 正常 1 禁用
+  teamId             String?
+  avatarShare        String?
+  tags               String?
+  content            Json?
+  isNativePage       Boolean?      @default(false) /// 是否是原生页面
+  createdAt          DateTime      @default(now()) @map(name: "created_at")
+  updatedAt          DateTime      @updatedAt @map(name: "updated_at")
+  publishedHistoryId String? /// 当前生产环境
+  routeKey           String?
+  Team               Team?         @relation(fields: [teamId], references: [id])
+  app                Application?  @relation(fields: [appId], references: [id])
+  creator            User?         @relation(fields: [creatorId], references: [id])
+  PageHistory        PageHistory[]
+}
+
+model Template {
+  id            String   @id @default(cuid())
+  teamId        String
+  name          String
+  desc          String?
+  type          String // page | component
+  pageType      String   @default("mobile") // pc | mobile | form
+  isDelete      Boolean  @default(false)
+  isPrivate     Boolean  @default(true)
+  categoryId    String?
+  componentName String?
+  content       Json?
+  creatorUserId String?
+  sort          Int?
+  avatar        String?
+  createdAt     DateTime @default(now()) @map(name: "created_at")
+  updatedAt     DateTime @updatedAt @map(name: "updated_at")
+  Team          Team?    @relation(fields: [teamId], references: [id])
+  User          User?    @relation(fields: [creatorUserId], references: [id])
+}
+
+model TemplateCategory {
+  id               String   @id @default(cuid())
+  name             String
+  parentCategoryId String
+  createdAt        DateTime @default(now()) @map(name: "created_at")
+  updatedAt        DateTime @updatedAt @map(name: "updated_at")
+}
+
+model PageHistory {
+  id                 String   @id @default(cuid())
+  createdAt          DateTime @default(now()) @map(name: "created_at")
+  content            Json?
+  page               Page     @relation(fields: [pageId], references: [id])
+  pageId             String
+  creatorId          String
+  isPublishedHistory Boolean?
+  creator            User?    @relation(fields: [creatorId], references: [id])
+}
+
+model Application {
+  id                  String                @id @default(cuid())
+  name                String
+  type                Int?                  @default(1) /// 1. h5网站 2. 桌面网站 3. 小程序 4. app
+  desc                String?
+  avatar              String?               @default("https://mtbird-cdn.staringos.com/product/assets/logo108.png")
+  homePageId          String?
+  status              Int?                  @default(0) /// -1 已删除 0 正常 1 禁用
+  creatorId           String?
+  teamId              String?
+  pages               Page[]
+  domainId            String?
+  templateId          String?
+  wxMpTemplateId      String?
+  createdAt           DateTime              @default(now()) @map(name: "created_at")
+  updatedAt           DateTime              @updatedAt @map(name: "updated_at")
+  team                Team?                 @relation(fields: [teamId], references: [id])
+  creator             User?                 @relation(fields: [creatorId], references: [id])
+  domain              Domain?               @relation(fields: [domainId], references: [id])
+  AppExtensionInstall AppExtensionInstall[]
+  metadata            Json?
+
+  applicationLoginConfig ApplicationLoginConfig?
+}
+
+enum ApplicationLoginConfigLoginWay {
+  password
+  phone
+  miniprogram
+  qrcode
+}
+model ApplicationLoginConfig {
+  id                  String                @id @default(cuid())
+  secret              String?
+  logo                String?
+  title               String?
+  // ApplicationLoginConfigLoginWay[]
+  loginWays           Json? 
+  appId               String                @unique
+  loginCallbackUrl    String?
+  application         Application           @relation(fields: [appId], references: [id])
+}
+
+enum Platform {
+  h5
+  pc
+  miniProgram
+  app
+  all
+}
+
+model ApplicationTemplate {
+  id              String   @id @default(cuid())
+  demoUrl         String?
+  demoQrcodeUrl   String?
+  name            String
+  type            Int?     @default(1) /// 1. h5网站 2. 桌面网站 3. 小程序 4. app
+  desc            String?
+  avatar          String?  @default("https://mtbird-cdn.staringos.com/product/assets/logo108.png")
+  homePageId      String?
+  isDelete        Boolean? @default(false) /// false 已删除 true 正常
+  creatorId       String?
+  teamId          String?
+  pages           Json     @default("[]")
+  dataModels      Json     @default("[]")
+  domainId        String?
+  wxMpTemplateId  String?
+  platform        Platform @default(all)
+  sort            Int      @default(0)
+  isPayMemberOnly Boolean? @default(false)
+  metadata        Json?
+  createdAt       DateTime @default(now()) @map(name: "created_at")
+  updatedAt       DateTime @updatedAt @map(name: "updated_at")
+}
+
+model WxMiniProgramTemplate {
+  id         String @id @default(cuid())
+  name       String
+  templateId String
+}
+
+model Team {
+  id          String        @id @default(cuid())
+  name        String
+  type        Int? /// 1: super admin of this team | 0: normal member
+  desc        String?
+  avatar      String?
+  teamLogo    String?
+  status      Int?          @default(0) /// -1 已删除 0 正常 1 禁用
+  creator     User?         @relation(fields: [creatorId], references: [id])
+  creatorId   String?
+  version     TeamVersion   @default(normal)
+  Application Application[]
+  TeamMember  TeamMember[]
+  pages       Page[]
+  createdAt   DateTime      @default(now()) @map(name: "created_at")
+  updatedAt   DateTime      @updatedAt @map(name: "updated_at")
+  sort        Int           @default(1)
+  Template    Template[]
+  companyId   String?
+  company     CompanyInfo?  @relation(fields: [companyId], references: [id])
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  team      Team     @relation(fields: [teamId], references: [id])
+  member    User     @relation(fields: [memberId], references: [id])
+  memberId  String
+  teamId    String
+  type      Int // 1 super 2 normal
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+model User {
+  id           String  @id @default(cuid())
+  name         String? @unique
+  nickname     String?
+  email        String? @unique
+  phone        String? @unique
+  password     String?
+  avatar       String?
+  registeredIp String?
+  registryInfo Json?
+  status       Int?    @default(0) /// -1 已删除 0 正常 1 禁用
+
+  dealerId String?
+  dealer   Dealer? @relation(fields: [dealerId], references: [id])
+
+  fromDealerId String?
+  fromDealer   Dealer? @relation(fields: [fromDealerId], references: [id], "fromDealer")
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+  TeamMember        TeamMember[]
+  Team              Team[]
+  Application       Application[]
+  Page              Page[]
+  PageHistory       PageHistory[]
+  UserWechatInfo    UserWechatInfo?
+  SubscriptionOrder SubscriptionOrder[]
+  Template          Template[]
+  UserLoginLog      UserLoginLog[]
+  UserActiveLog     UserActiveLog[]
+  companyMember     CompanyMember[]
+
+  @@map(name: "users")
+}
+
+enum LoginMethods {
+  phone
+  password
+  wechat
+  miniProgram
+  workWechat
+  offiaccount
+}
+
+model UserLoginLog {
+  id          String       @id @default(cuid())
+  userId      String
+  loginMethod LoginMethods
+  createdAt   DateTime     @default(now()) @map(name: "created_at")
+  ip          String?
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model UserActiveLog {
+  id          String       @id @default(cuid())
+  userId      String
+  loginMethod LoginMethods
+  createdAt   DateTime     @default(now()) @map(name: "created_at")
+  ip          String?
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model UserWechatInfo {
+  id           String  @id @default(cuid())
+  userId       String  @unique
+  openId       String
+  mpOpenid     String? 
+  accessToken  String?
+  refreshToken String?
+  nickname     String?
+  sex          Int?
+  province     String?
+  city         String?
+  country      String?
+  headImage    String?
+  privilege    Json?
+  unionId      String?
+  state        String
+  corpid       String? /// 企业微信 企业id
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model UserVerificationCode {
+  id        String   @id @default(cuid())
+  code      String
+  userId    String?
+  phone     String?
+  email     String?
+  type      Int // 1. phone 2. email
+  createdAt DateTime @default(now()) @map(name: "created_at")
+}
+
+model ExtensionCategory {
+  id   String  @id @default(cuid())
+  name String? @unique
+}
+
+model Extension {
+  id                  String                @id @default(cuid())
+  name                String?               @unique
+  title               String?
+  desc                String?
+  latestVersion       String?
+  path                String?
+  creatorId           String?
+  ownerId             String?
+  avatar              String?               @default("https://mtbird-cdn.staringos.com/app-app.png")
+  teamId              String
+  isOfficial          Boolean               @default(false) /// 是否官方
+  isUninstallable     Boolean               @default(false) /// 是否不可卸载
+  isPreInstalled      Boolean               @default(false) /// 是否预装
+  private             Boolean               @default(false)
+  ownerType           Int                   @default(1) /// 1. user 2. team
+  createdAt           DateTime              @default(now()) @map(name: "created_at")
+  updatedAt           DateTime              @updatedAt @map(name: "updated_at")
+  appExtensionInstall AppExtensionInstall[]
+}
+
+model AppExtensionInstall {
+  id          String       @id @default(cuid())
+  extensionId String
+  appId       String
+  extension   Extension?   @relation(fields: [extensionId], references: [id])
+  app         Application? @relation(fields: [appId], references: [id])
+  createdAt   DateTime     @default(now()) @map(name: "created_at")
+}
+
+model ExtensionHistory {
+  id          String   @id @default(cuid())
+  extensionId String
+  version     String
+  path        String
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+}
+
+model ImageLibTag {
+  id          String   @id @default(cuid())
+  name        String?
+  englishName String?
+  icon        String?
+  sortNum     Int?
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+}
+
+// data management
+model FormData {
+  id        String   @id @default(cuid())
+  entityId  String?
+  formId    String?
+  pageId    String?
+  data      Json
+  userAgent String?
+  status    Int?     @default(0) /// -1 已删除 0 正常 1 禁用
+  createdAt DateTime @default(now()) @map(name: "created_at")
+}
+
+model Domain {
+  id          String        @id @default(cuid())
+  domainName  String        @unique
+  certKey     String        @db.Text()
+  certPem     String        @db.Text()
+  Application Application[]
+}
+
+enum QueryAuth {
+  PRIVATE
+  PUBLIC
+  TEAM
+  LOGINED
+}
+
+model DataModel {
+  id             String           @id @default(cuid())
+  name           String
+  teamId         String
+  appId          String?
+  isDelete       Boolean          @default(false)
+  creatorId      String?
+  createdAt      DateTime         @default(now()) @map(name: "created_at")
+  updatedAt      DateTime         @updatedAt @map(name: "updated_at")
+  DataModelField DataModelField[]
+  DataModelData  DataModelData[]
+
+  queryAuth QueryAuth @default(PUBLIC)
+
+  @@unique([name, teamId, appId], name: "DataModels_name_teamId_appId_unique_constraint")
+}
+
+enum FieldType {
+  STRING
+  NUMBER
+  BOOLEAN
+  DATE
+  DATETIME
+  ENUM
+  RELATE
+  PHOTO
+  VIDEO
+  RICE_TEXT
+  OBJECT
+  ARRAY
+}
+
+model DataModelField {
+  id                      String     @id @default(cuid())
+  key                     String
+  displayName             String
+  dataModelId             String
+  creatorId               String?
+  sort                    Float?     @default(1.0)
+  type                    FieldType  @default(STRING)
+  options                 Json?
+  relatedDataModelId      String?
+  relatedDataModelFieldId String?
+  dataModel               DataModel? @relation(fields: [dataModelId], references: [id])
+  createdAt               DateTime   @default(now()) @map(name: "created_at")
+  updatedAt               DateTime   @updatedAt @map(name: "updated_at")
+
+  @@unique([key, dataModelId], name: "DataModelField_key_dataModelId_unique_constraint")
+}
+
+model DataModelData {
+  id          String     @id @default(cuid())
+  data        Json
+  dataModelId String
+  creatorId   String?
+  createdAt   DateTime   @default(now()) @map(name: "created_at")
+  updatedAt   DateTime   @updatedAt @map(name: "updated_at")
+  dataModel   DataModel? @relation(fields: [dataModelId], references: [id])
+}
+
+model APIDomain {
+  id         String       @id @default(cuid())
+  name       String
+  domainName String
+  teamId     String
+  creatorId  String?
+  createdAt  DateTime     @default(now()) @map(name: "created_at")
+  updatedAt  DateTime     @updatedAt @map(name: "updated_at")
+  APIRequest APIRequest[]
+
+  @@unique([domainName, teamId], name: "DataModelField_key_dataModelId_unique_constraint")
+}
+
+enum RequestMethod {
+  GET
+  POST
+  DELETE
+  PUT
+}
+
+model APIRequest {
+  id             String        @id @default(cuid())
+  name           String
+  pathName       String
+  domainId       String
+  creatorId      String?
+  method         RequestMethod @default(GET)
+  requestHeaders Json
+  requestParams  Json
+  responseData   Json
+
+  apiDomain APIDomain? @relation(fields: [domainId], references: [id])
+}
+
+enum WxMiniProgramStatus {
+  preAuth // 授权之前
+  registedBeta // 试用小程序 - 注册成功
+  authedBeta // 试用小程序 - 授权成功
+  pushedBeta // 试用小程序 - 发布成功
+  preRelease // 发布前
+  verifyReleasing // 发布认证中
+  release // 正式小程序认证完成
+  auditing // 提交上线审核
+  audited // 正式上线小程序
+}
+
+enum WxMiniProgramType {
+  beta
+  release
+}
+
+model WxMiniProgram {
+  // mtbird 信息
+  id               String              @id @default(cuid())
+  creatorId        String?
+  appId            String? // 关联 Application 的 mtbird 的 appId
+  type             WxMiniProgramType   @default(beta)
+  status           WxMiniProgramStatus @default(preAuth)
+  // 试用小程序信息
+  wxUniqueId       String              @unique
+  authorizeUrl     String
+  wxAppId          String?
+  version          String?
+  qrcodeUrl        String?
+  officalQrcodeUrl String?
+  domains          String?
+  name             String?
+  officalName      String?
+  isVerifyName     Boolean             @default(false)
+  isDetailsSetup   Boolean             @default(false)
+  wxMpTemplateId   String?
+
+  companyId  String?
+  categories Json?
+
+  verifyStatus  String?
+  verifyMessage String?
+
+  auditStatus     String?
+  auditMessage    String?
+  auditScreenShot String?
+
+  renameStatus  String?
+  renameMessage String?
+
+  nameAuditId String? // 修改名称的审核单
+  auditId     String? // 代码上线审核单id
+
+  createdAt              DateTime                 @default(now()) @map(name: "created_at")
+  updatedAt              DateTime                 @updatedAt @map(name: "updated_at")
+  WxMiniProgramAuditInfo WxMiniProgramAuditInfo[]
+}
+
+model WxMiniProgramAuditInfo {
+  id                String  @id @default(cuid())
+  wxMpId            String
+  itemList          Json
+  feedbackInfo      String
+  ugcScene          String?
+  ugcOtherSceneDesc String?
+  ugcMethod         String?
+  ugcHasAuditTeam   Int?
+  ugcAuditDesc      String?
+
+  wxMp WxMiniProgram? @relation(fields: [wxMpId], references: [id])
+}
+
+enum WxMiniProgramAuthorizationStatus {
+  success
+  cancel
+}
+
+// https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/2.0/api/Before_Develop/Authorization_Process_Technical_Description.html
+// https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/2.0/api/ThirdParty/token/authorize_event.html
+model WxMiniProgramAuthorization {
+  id      String  @id @default(cuid())
+  wxAppId String?
+
+  status WxMiniProgramAuthorizationStatus @default(success)
+
+  // 授权相关回调信息
+  authorizationCode            String?
+  authorizationCodeExpiredTime String?
+  authorizationCreateTime      String?
+  preAuthCode                  String?
+  createdAt                    DateTime @default(now()) @map(name: "created_at")
+  updatedAt                    DateTime @updatedAt @map(name: "updated_at")
+}
+
+model CompanyInfo {
+  id                 String  @id @default(cuid())
+  teamId             String?
+  creatorId          String?
+  name               String
+  avatar             String?
+  code               String?
+  codeType           Int?    @default(1) // 1: 统一社会信用代码（18 位）2: 组织机构代码（9 位 xxxxxxxx-x) 3: 营业执照注册号(15 位)
+  legalPersonaWechat String?
+  legalPersonaName   String?
+  legalPersonaIdCard String?
+  componentPhone     String?
+  status             Int?    @default(0) /// -1 已删除 0 正常 1 禁用
+
+  licenseUrl String? // 营业执照照片
+  idCardUrl  String? // 身份证照片
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+  teams         Team[]
+  companyMember CompanyMember[]
+
+  corpInfoId String?   @unique
+  corpInfo   CorpInfo? @relation(fields: [corpInfoId], references: [id])
+}
+
+model ServiceGood {
+  id      String      @id @default(cuid())
+  version TeamVersion @unique
+
+  name        String
+  desc        String
+  price       Decimal
+  sort        Int
+  serviceList Json
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+model SubscriptionGood {
+  id      String      @id @default(cuid())
+  version TeamVersion @unique
+
+  name        String
+  desc        String
+  memberNum   Int
+  appNum      Int
+  pageNum     Int
+  templateNum Int
+
+  enablePublicTemplate     Boolean @default(true)
+  enablePublicExtension    Boolean @default(true)
+  enableBindDomainName     Boolean @default(true)
+  enablePrivateTemplate    Boolean @default(false)
+  enablePrivateExtension   Boolean @default(false)
+  enableAPI                Boolean @default(false)
+  enable724CustomerService Boolean @default(false)
+  enablePrivateDataStorage Boolean @default(false)
+
+  unitPrice Decimal
+  sort      Int
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+enum OrderStatus {
+  created
+  confirming
+  paid
+  expired
+  closed
+}
+
+enum TeamVersion {
+  normal
+  professional
+  enterprise
+  private
+}
+
+enum OrderPayWay {
+  alipay // 支付宝
+  wechat // 微信
+  transfer // 对公转账
+}
+
+enum PeriodType {
+  yearly
+  monthly
+}
+
+model SubscriptionOrder {
+  id                 String       @id @default(cuid())
+  goodId             String?
+  orderUserId        String
+  confirmUserId      String? // 确认订单的管理员ID
+  teamId             String?
+  companyName        String?
+  contact            String?
+  period             PeriodType? // 周期（月）
+  times              Int? // how many time of period
+  price              Decimal
+  status             OrderStatus  @default(created)
+  payWay             OrderPayWay?
+  version            TeamVersion?
+  from               String       @default("mtbird")
+  tradeTransactionId String?
+  tradeType          String?
+  tradeBankType      String?
+  certificateUrl     String?
+  notifyUrl          String?
+  returnUrl          String?
+  name               String?
+  desc               String?
+  isSubscription     Boolean      @default(true)
+  rechargePlanId     String?
+  rechargePlan       RechargePlan? @relation(fields: [rechargePlanId], references: [id])
+
+  notifyFailedReason String?
+
+  payTime DateTime?
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+  user User? @relation(fields: [orderUserId], references: [id])
+}
+
+model TeamUsage {
+  id       String @id @default(cuid())
+  memberId String @unique
+
+  version TeamVersion
+
+  limitedMemberNum    Int
+  limitedAppNum       Int
+  limitedPageNum      Int
+  limitedTemplateNum  Int
+  limitedStorageSpace Int
+}
+
+model AITeamUsage {
+  id                 String @id @default(cuid())
+  teamId             String @unique
+  latestModifyUserId String
+  chatLimitedNum     Int    @default(10)
+  imageLimitedNum    Int    @default(10)
+
+  chatUsageNum  Int      @default(0)
+  imageUsageNum Int      @default(0)
+  createdAt     DateTime @default(now()) @map(name: "created_at")
+  updatedAt     DateTime @updatedAt @map(name: "updated_at")
+}
+
+enum AIType {
+  chat
+  image
+}
+
+model AICallRecord {
+  id        String   @id @default(cuid())
+  teamId    String
+  userId    String
+  response  Json
+  prompt    String
+  type      AIType
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+// 企业微信 企业信息
+model CorpInfo {
+  id            String   @id @default(cuid())
+  corpid        String   @unique
+  permanentCode String
+  corpInfo      Json?
+  authInfo      Json?
+  createdAt     DateTime @default(now())
+
+  companyInfo CompanyInfo?
+}
+
+model WecomConversation {
+  id             String   @id @default(uuid())
+  conversationId String   @unique
+  kfId           String
+  userId         String
+  scene          String?
+  botId          String?
+  sessionInfo    Json?
+  isDelete       Boolean? @default(false)
+  createdAt      DateTime @default(now())
+}
+
+model WecomServiceReceivedMessage {
+  id         String   @id @default(uuid())
+  nextCursor String
+  syncedMsg  Json
+  openKfId   String
+  corpid     String
+  createdAt  DateTime @default(now())
+}
+
+// model Company {
+//   id        String   @id @default(cuid())
+//   name      String
+//   avatar    String?
+//   status    Int?          @default(0) /// -1 已删除 0 正常 1 禁用
+//   createdAt   DateTime      @default(now()) 
+//   updatedAt   DateTime      @updatedAt
+//   creatorId   String    
+
+//   team      Team[]
+//   CompanyMember CompanyMember[]
+//   creator   User     @relation(fields: [creatorId], references: [id])
+// }
+
+model CompanyMember {
+  id        Int    @id @default(autoincrement())
+  companyId String
+
+  member    User        @relation(fields: [memberId], references: [id])
+  memberId  String
+  company   CompanyInfo @relation(fields: [companyId], references: [id])
+  createdAt DateTime    @default(now())
+}
+
+// model CompanyTeam {
+//   id        String   @id @default(cuid())
+//   companyId String   
+//   teamId    String    @unique
+
+//   team      Team     @relation(fields: [teamId], references: [id])
+//   company   Company  @relation(fields: [companyId], references: [id])
+// }
+
+model Dealer {
+  id          String  @id @default(cuid())
+  name        String
+  companyName String
+  dealerLevel Int     @default(-1)
+  siteLogo    String?
+  siteTitle   String?
+  superUserId String?
+  // superUser   User?  @relation(fields: [superUserId], references: [id])
+
+  users   User[]
+  product User[] @relation("fromDealer")
+}
+
+// 代理商注册激活账号记录
+model DealerProductRecord {
+  id           Int      @id @default(autoincrement())
+  dealerId     String
+  actionUserId String
+  targetUserId String
+  createdAt    DateTime @default(now())
+}
+
+model StaringOSPlatform {
+  id           Int      @id @default(autoincrement())
+  name         String?
+  key          String?
+  desc         String?
+  createdAt    DateTime @default(now())
+
+  rechargePlan RechargePlan[]
+  platformPaymentConfig PlatformPaymentConfig?
+}
+
+model PlatformPaymentConfig {
+  id           Int      @id @default(autoincrement())
+
+  platformId   Int       @unique
+  staringOSPlatform StaringOSPlatform @relation(fields: [platformId], references: [id])
+  // { pageTitle: "充值派照币", subtitle: "", bottomImage: "" }
+  layoutConfig Json?
+
+  returnUrl    String?
+  notifyUrl    String?
+}
+
+enum DurationType {
+  day
+  month
+  year
+}
+
+enum PlanType {
+  membership // 会员
+  point // 积分
+}
+
+model RechargePlan {
+  id                  String             @id @default(cuid())
+  name                String
+  desc                String?
+  value               Int // 时长值，如1、3、6, 当为 point 时 durationValue 是分值
+  durationType        DurationType?
+  type                PlanType            @default(point)
+  originalPrice       Decimal // 原价
+  price               Decimal // 实际价格
+  isActive            Boolean              @default(true) // 充值方案是否有效（上线/下线
+  unit                String?
+  sort                Int                  @default(1) // 排序
+  subscriptionOrder   SubscriptionOrder[]
+  platformId          Int
+  platform            StaringOSPlatform             @relation(fields: [platformId], references: [id])
+}

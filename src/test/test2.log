@@ -1,0 +1,61 @@
+1|mtbird-saas  | 111111 commit code: d3a4a7ee-7da1-46b5-bc42-5792f35f4d58
+1|mtbird-saas  | 222222 app: {
+1|mtbird-saas  |   id: 'd3a4a7ee-7da1-46b5-bc42-5792f35f4d58',
+1|mtbird-saas  |   name: 'te',
+1|mtbird-saas  |   type: 1,
+1|mtbird-saas  |   desc: '',
+1|mtbird-saas  |   avatar: null,
+1|mtbird-saas  |   homePageId: 'clblvsl2g0026s6ahcqiqidmh',
+1|mtbird-saas  |   status: 0,
+1|mtbird-saas  |   creatorId: 'cl5ix93we0029dw4zj9v0g51m',
+1|mtbird-saas  |   teamId: 'cl6svipaj0907j1s61qie4v9c',
+1|mtbird-saas  |   domainId: null,
+1|mtbird-saas  |   createdAt: 2022-12-05T11:26:14.251Z,
+1|mtbird-saas  |   updatedAt: 2022-12-21T02:33:09.492Z,
+1|mtbird-saas  |   domain: null
+1|mtbird-saas  | }
+1|mtbird-saas  | 33333 wxMp: {
+1|mtbird-saas  |   id: 'clbx31d630000vv4r4gdqnrpl',
+1|mtbird-saas  |   creatorId: null,
+1|mtbird-saas  |   appId: 'd3a4a7ee-7da1-46b5-bc42-5792f35f4d58',
+1|mtbird-saas  |   status: 'registedBeta',
+1|mtbird-saas  |   wxUniqueId: 'BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq',
+1|mtbird-saas  |   authorizeUrl: 'https://mp.weixin.qq.com/wxawap/fastregistertpbeta?action=create&create_token=BI1UjbpKT2swlkMfkR9i7xlIJ677B_Vy-TU8rUABh-SJwqptVv_cybHTIj3sIcvq#wechat_redirect',
+1|mtbird-saas  |   name: 'temtbird的试用小程序',
+1|mtbird-saas  |   wxAppId: 'wxd1d53a6e35dc1f49',
+1|mtbird-saas  |   version: null,
+1|mtbird-saas  |   createdAt: 2022-12-21T03:15:38.092Z,
+1|mtbird-saas  |   updatedAt: 2022-12-21T03:49:23.148Z
+1|mtbird-saas  | }
+1|mtbird-saas  | 55555 before:
+1|mtbird-saas  | [get3rdAccessToken] accessToken3rd: 63_2OHzAaMgSPJgdakG55U0pdLsKfDBTX04wjJXbwura45-ShNN8842LjP6m_If5rnkdHNA44XjsDGf867mUa23YBU48ZZIVIeT9NoxinyA9XxBBihhd5QBe1yK3dsDPQiACAIUV
+1|mtbird-saas  | [commitCodeToMP 1]: 63_2OHzAaMgSPJgdakG55U0pdLsKfDBTX04wjJXbwura45-ShNN8842LjP6m_If5rnkdHNA44XjsDGf867mUa23YBU48ZZIVIeT9NoxinyA9XxBBihhd5QBe1yK3dsDPQiACAIUV wxd1d53a6e35dc1f49
+1|mtbird-saas  | [getCustomerMPAPIAccessToken 1] customerAccessToken: null
+1|mtbird-saas  | [getCustomerMPAPIAccessToken 2] refreshToken: null
+1|mtbird-saas  | [getCustomerMPAPIAccessToken 3] wxAuth: {
+1|mtbird-saas  |   id: 'clbx4n4ko0000fyx4nizzzj63',
+1|mtbird-saas  |   wxAppId: 'wxd1d53a6e35dc1f49',
+1|mtbird-saas  |   status: 'success',
+1|mtbird-saas  |   authorizationCode: 'queryauthcode@@@tJbiVgtx-b9wkRfEsWI1zMVRHfe6lBqkEI389gkvErctSRn0zNInwsrzIqh02oPywxmFboLcvhf4328coPjpmQ',
+1|mtbird-saas  |   authorizationCodeExpiredTime: '1671596165',
+1|mtbird-saas  |   authorizationCreateTime: 1671592565,
+1|mtbird-saas  |   preAuthCode: 'preauthcode@@@FWHxl6RkIDfBRu_EhXA-ViYbHvQlPL0t-cqWQ2Drx5p5qxgo-VYcV1nhCVyhAjJIbY7n3h4omVCJ-eVzAvC8CQ',
+1|mtbird-saas  |   createdAt: 2022-12-21T04:00:33.001Z,
+1|mtbird-saas  |   updatedAt: 2022-12-21T04:00:10.745Z
+1|mtbird-saas  | }
+1|mtbird-saas  | [get3rdAccessToken] accessToken3rd: 63_2OHzAaMgSPJgdakG55U0pdLsKfDBTX04wjJXbwura45-ShNN8842LjP6m_If5rnkdHNA44XjsDGf867mUa23YBU48ZZIVIeT9NoxinyA9XxBBihhd5QBe1yK3dsDPQiACAIUV
+1|mtbird-saas  | [queryMPAuth] error: null {
+1|mtbird-saas  |   errcode: 40001,
+1|mtbird-saas  |   errmsg: 'invalid credential, access_token is invalid or not latest rid: 63a2ccae-2ccb4316-7f5a2871'
+1|mtbird-saas  | } queryauthcode@@@tJbiVgtx-b9wkRfEsWI1zMVRHfe6lBqkEI389gkvErctSRn0zNInwsrzIqh02oPywxmFboLcvhf4328coPjpmQ
+1|mtbird-saas  | [3. prepare access token]: 63_2OHzAaMgSPJgdakG55U0pdLsKfDBTX04wjJXbwura45-ShNN8842LjP6m_If5rnkdHNA44XjsDGf867mUa23YBU48ZZIVIeT9NoxinyA9XxBBihhd5QBe1yK3dsDPQiACAIUV undefined
+1|mtbird-saas  | [mpCommitCode] aaw: undefined d3a4a7ee-7da1-46b5-bc42-5792f35f4d58 wxd1d53a6e35dc1f49
+1|mtbird-saas  | [mpCommitCode] body: null {
+1|mtbird-saas  |   errcode: 40001,
+1|mtbird-saas  |   errmsg: 'invalid credential, access_token is invalid or not latest rid: 63a2ccae-6e655a0f-2791a5d5'
+1|mtbird-saas  | }
+1|mtbird-saas  | [4. upload code]: {
+1|mtbird-saas  |   errcode: 40001,
+1|mtbird-saas  |   errmsg: 'invalid credential, access_token is invalid or not latest rid: 63a2ccae-6e655a0f-2791a5d5'
+1|mtbird-saas  | }
+1|mtbird-saas  | Code Upload Error: 40001 undefined

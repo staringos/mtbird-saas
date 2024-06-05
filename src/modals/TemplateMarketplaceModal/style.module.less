@@ -1,0 +1,27 @@
+.marketplaceModal {
+  :global {
+    .ant-modal-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ant-card-body {
+      padding: 10px;
+    }
+  }
+
+  .modalContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    .templateList {
+      margin-top: 10px;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(auto-fill, 220px);
+      grid-template-rows: repeat(auto-fill, 320px);
+      flex: 1;
+    }
+  }
+}

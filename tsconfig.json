@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/types/*": ["types/*"],
+      "@/components/*": ["components/*"],
+      "@/middlewares/*": ["middlewares/*"],
+      "@/services/*": ["services/*"],
+      "@/utils/*": ["utils/*"],
+      "@/modal/*": ["modal/*"],
+      "@/apis/*": ["apis/*"]
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "externals.d.ts",
+    "src/**/*.ts",
+    "src/types/externals.d.ts",
+    "src/modals/TokenModal/index.tsx",
+    "src/pages/wx/loginBack.tsx",
+    "src/pages/wx/test.tsx"
+  ],
+  "exclude": [".next", "node_modules"]
+}

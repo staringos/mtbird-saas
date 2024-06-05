@@ -1,0 +1,40 @@
+.pageCardContainer {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  max-height: 416px;
+
+  border-bottom: 1px solid #f0f0f0;
+
+  @keyframes silder-down {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(-200px, 0);
+    }
+  }
+
+  :global {
+    .ant-card-actions {
+      border-bottom: 1px solid #f0f0f0;
+    }
+  }
+
+  .pageTypeIcon {
+    color: var(--mtbird-primary-6);
+    margin-left: 5px;
+  }
+
+  :global {
+    .ant-card-cover {
+      height: 260px;
+      overflow-y: hidden;
+      background-color: var(--gray-1);
+    }
+
+    .ant-card-body {
+      height: 107px;
+    }
+  }
+}

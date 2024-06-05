@@ -1,0 +1,62 @@
+.servicesButtonWrapper {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  display: flex;
+  z-index: 999;
+
+  .buttonContent {
+    display: flex;
+    flex-direction: column;
+
+    > :nth-child(2n) {
+      margin-top: 10px;
+    }
+  }
+
+  .title {
+    font-weight: 700;
+    color: white;
+    font-size: 14px;
+  }
+
+  .desc {
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .servicesButtonImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .servicesButtonContent {
+    display: flex;
+    flex-direction: column;
+    width: 138px;
+    height: 240px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mtbird-primary-6);
+    border-bottom-left-radius: 5px;
+    padding: 15px 5px;
+    display: none;
+    color: white;
+  }
+
+  .servicesButton {
+    width: 38px;
+    height: 38px;
+    background-color: var(--mtbird-primary-6);
+    color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    display: flex;
+    cursor: pointer;
+  }
+}

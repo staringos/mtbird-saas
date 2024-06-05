@@ -1,0 +1,31 @@
+.appBarWrapper {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  .appBarContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+
+    .appBarLeft {
+      display: flex;
+      flex: 1;
+      align-items: center;
+
+      :global {
+        .ant-tag {
+          height: 22px;
+          margin-left: 10px;
+          margin-right: 0;
+        }
+
+        .ant-tabs-nav {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
