@@ -12,9 +12,10 @@ const Install = () => {
 
   const handlerInstall = () => {
     setLoading(true);
-    console.log(form.getFieldsValue());
-    installer().then((res) => {
-      location.href = "/"
+    installer(form.getFieldsValue()).then((res) => {
+      setTimeout(() => {
+        location.href = "/"
+      }, 2000);
     });
   };
 
@@ -91,7 +92,7 @@ const Install = () => {
             </Form.Item>
             <Form.Item
               label="Redis"
-              name="redis"
+              name="REDIS_URL"
               // rules={[{ required: true, message: "请输入Redis" }]}
             >
               <Input placeholder="请输入redis" />

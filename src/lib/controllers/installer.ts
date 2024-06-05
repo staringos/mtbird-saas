@@ -24,16 +24,19 @@ export const installApp = (req: NextApiRequest, res: NextApiResponse) => {
 		"REDIS_DB"
 	];
 
-	envs = {
-		...defaultEnv,
-		...envs,
-	}
 
 	// const errorParam = required.find(item => !envs[item]);
 	// if (errorParam) return  res.status(400).send(generateResponse(400, `${errorParam} is required`));
 
 	const envFilePath = path.resolve(process.cwd(), '.env');
-	// const envConfig = require('dotenv').parse(fs.readFileSync(envFilePath));
+	const localEnvConfig = require('dotenv').parse(fs.readFileSync(envFilePath));
+
+	envs = {
+		...localEnvConfig,
+		...defaultEnv,
+		...envs,
+	}
+
 
 	envs.NEXT_PUBLIC_IS_INSTALL = "true";
 

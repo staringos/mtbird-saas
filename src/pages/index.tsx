@@ -29,7 +29,7 @@ interface IProps {
 
 const Home: NextPage = (props: IProps | any) => {
   if (typeof window === 'undefined') return null;
-  if (props.isInstall != "true" && location.pathname !== "/install" && process.env.NODE_ENV === 'production') {
+  if (props.isInstall != "true" && location.pathname !== "/install") {
     // router.replace('/install')
     location.href = "/install";
     return;
