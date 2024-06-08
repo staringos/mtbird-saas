@@ -29,9 +29,9 @@ interface IProps {
 
 const Home: NextPage = (props: IProps | any) => {
   if (typeof window === 'undefined') return null;
-  if (props.isInstall != "true" && location.pathname !== "/install") {
-    // router.replace('/install')
-    location.href = "/install";
+  if (props.isInstall != "true" && location.pathname !== "/install-welcome") {
+    // router.replace('/install-welcome')
+    location.href = "/install-welcome";
     return;
   }
 

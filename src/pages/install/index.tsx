@@ -38,13 +38,13 @@ const Install = () => {
         name="basic"
         // labelCol={{ span: 6 }}
         // wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
+        // style={{ maxWidth: 600 }}
         form={form}
         onFinish={handleFinish}
         autoComplete="off"
       >
         <div className={styles.content}>
-          <div>
+          <div style={{ width: "30%" }}>
             <h1>系统配置</h1>
             <Form.Item
               label="系统名"
