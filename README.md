@@ -21,7 +21,7 @@ MtBird-SaaS is a low-code platform for HTML Page、Website. We help to build pag
 
 <img src="https://mtbird-cdn.staringos.com/product/movies/example-mini-2.gif" />
 
-<img src="./packages/mtbird-storybook/src/assets/images/advance-en.png" />
+<img src="https://raw.githubusercontent.com/staringos/mtbird/master/packages/mtbird-storybook/src/assets/images/advance-en.png" />
 
 <p></p>
 
