@@ -1,4 +1,4 @@
-<img src="https://github.com/staringos/mtbird/packages/mtbird-storybook/src/assets/images/logo-banner-en.png" />
+<img src="https://raw.githubusercontent.com/staringos/mtbird/master/packages/mtbird-storybook/src/assets/images/logo-banner-en.png" />
 
 <div align="center">
   <a href="https://mtbird.staringos.com?f=mbrm">Use for free</a> | <a href="https://staringos.com?f=mbrm">Website</a> ｜ <a href="https://docs.staringos.com?f=mbrm">Docs</a> ｜ <a href="/story/demos-编辑器--form-page">
