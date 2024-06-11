@@ -1,4 +1,4 @@
-<img src="./packages/mtbird-storybook/src/assets/images/logo-banner.png" />
+<img src="https://raw.githubusercontent.com/staringos/mtbird/master/packages/mtbird-storybook/src/assets/images/logo-banner-en.png" />
 
 <div align="center">
   <h3>你心所想，即是应用</h3>
@@ -18,31 +18,58 @@
 
 # 星搭精卫
 
-星搭精卫 MtBird 是一款低代码可视化页面生成器。我们帮助用户以可视化的形式搭建网页、小程序和表单等应用。这个星搭精卫的 SaaS 项目，包含全部接口。我们前端编辑器、渲染器已经独立成一个纯前端项目，详细可以查看这里 [mtbird editor](https://github.com/staringos/mtbird)
+星搭精卫 MtBird 是一款低代码可视化页面生成器。我们帮助用户以可视化的形式搭建网页、小程序和表单等应用。这个项目是星搭精卫的 SaaS 项目，包含全部接口。我们前端编辑器、渲染器已经独立成一个纯前端项目，详细可以查看这里 [mtbird editor](https://github.com/staringos/mtbird)
 
 [English](./README.md)
 
 <img src="https://mtbird-cdn.staringos.com/modal.gif" />
 
-<img src="./packages/mtbird-storybook/src/assets/images/advance.png" />
+<img src="https://raw.githubusercontent.com/staringos/mtbird/master/packages/mtbird-storybook/src/assets/images/advance-en.png" />
 
 <p></p>
 
 ## 快速开始
 
-需要 NodeJS 版本: >=18
-
 ```shell
 git clone https://github.com/staringos/mtbird-saas
 ```
 
-从 `.env` 修改配置文件
+### 1. 使用 Docker 启动
+
+开启服务
+
+```shell
+yarn build-compose
+yarn up-compose
+```
+
+### 2. 手动启动
+
+需要 NodeJS 版本: >=18
+
+1. 安装所有以来
+
+```shell
+yarn
+```
+
+2. 开启服务
+
+```shell
+yarn run start
+```
+
+## 配置
+
+配置在项目目录下 `.env` 文件中，您也可以直接启动服务，使用星搭自带的安装界面进行安装
+
+必须配置:
 
 ```shell
 # mysql 数据库链接
 DATABASE_URL="mysql://"
 
-# 七牛云地址 for CDN
+# Qiniu Cloud for CDN
 QINIU_ACCESS_KEY=
 QINIU_SECRET_KEY=
 BUCKET=
@@ -50,27 +77,11 @@ BUCKET_REGISTRY=
 
 # CDN URL
 NEXT_PUBLIC_CDN_URL=
-
 ```
 
-启动服务
+浏览器打开: http://localhost:3000/
 
-```shell
-yarn build-compose
-yarn up-compose
-
-```
-
-初始化数据库
-
-```shell
-yarn run db-push
-yarn run db-seed
-```
-
-在浏览器打开: http://localhost:3000/
-
-本地开发 mtbird 相关包，请查看 [这个文档](https://github.com/staringos/mtbird/tree/master/packages/mtbird-example)
+Develop mtbird library mode see [this document](https://github.com/staringos/mtbird/tree/master/packages/mtbird-example)
 
 ## 常用资料
 
@@ -94,7 +105,7 @@ yarn run db-seed
 
 ## Contributing
 
-PRs & Issues are all welcome, feel free to ask question or submit your code.
+欢迎大家提交 PRs 和 Issues.
 
 [CONTRIBUTING](./CONTRIBUTING.md)
 
