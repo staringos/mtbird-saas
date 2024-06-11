@@ -15,7 +15,7 @@
 
 </div>
 
-# MtBird [中文文档](./README-CN.md)
+# MtBird SaaS [中文文档](./README-CN.md)
 
 MtBird-SaaS is a low-code platform for HTML Page、Website. We help to build page without code or less code. It also support Wechat Mini-Program. This is fully repository, the main frontend editor is isolated, see this [mtbird editor](https://github.com/staringos/mtbird)
 
