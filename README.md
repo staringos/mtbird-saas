@@ -1,4 +1,4 @@
-<img src="./packages/mtbird-storybook/src/assets/images/logo-banner-en.png" />
+<img src="https://raw.githubusercontent.com/staringos/mtbird/master/packages/mtbird-storybook/src/assets/images/logo-banner-en.png" />
 
 <div align="center">
   <a href="https://mtbird.staringos.com?f=mbrm">Use for free</a> | <a href="https://staringos.com?f=mbrm">Website</a> ｜ <a href="https://docs.staringos.com?f=mbrm">Docs</a> ｜ <a href="/story/demos-编辑器--form-page">
@@ -15,13 +15,13 @@
 
 </div>
 
-# MtBird [中文文档](./README-CN.md)
+# MtBird SaaS [中文文档](./README-CN.md)
 
 MtBird-SaaS is a low-code platform for HTML Page、Website. We help to build page without code or less code. It also support Wechat Mini-Program. This is fully repository, the main frontend editor is isolated, see this [mtbird editor](https://github.com/staringos/mtbird)
 
 <img src="https://mtbird-cdn.staringos.com/product/movies/example-mini-2.gif" />
 
-<img src="./packages/mtbird-storybook/src/assets/images/advance-en.png" />
+<img src="https://raw.githubusercontent.com/staringos/mtbird/master/packages/mtbird-storybook/src/assets/images/advance-en.png" />
 
 <p></p>
 
