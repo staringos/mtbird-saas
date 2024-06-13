@@ -9,14 +9,14 @@ const isDev = process.env.NODE_ENV !== "production";
 const nextConfig = {
   reactStrictMode: false,
   jsconfigPaths: true,
-  output: 'standalone',
+  output: "standalone",
   api: {
     bodyParser: {
-      sizeLimit: '2mb' // Set desired value here
-    }
+      sizeLimit: "2mb", // Set desired value here
+    },
   },
   images: {
-    domains: ["mtbird-cdn.staringos.com"]
+    domains: ["mtbird-cdn.staringos.com"],
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     if (!config.externals) {
@@ -85,10 +85,18 @@ const nextConfig = {
   //   return []
   // },
   async rewrites() {
-    return [{
-          source: '/api/ai/:path*',
-          destination: 'https://staringai.com/api/:path*',
-        }]
+    const router = [
+      {
+        source: "/api/ai/:path*",
+        destination: "https://staringai.com/api/:path*",
+      },
+      {
+        source: "/api/sp/:path*",
+        destination: "https://msp.apis.staringos.com/:path*",
+      },
+    ];
+
+    return router;
   },
 };
 

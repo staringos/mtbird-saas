@@ -171,7 +171,6 @@ export const buildLoginJWT = async (
 
   const secret = app?.applicationLoginConfig?.secret || process.env.JWT_SECRET;
 
-  console.log(secret, '<<<<secret')
   return jwt.sign(payload, secret, {
     expiresIn: "7d",
   });

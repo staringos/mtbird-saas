@@ -42,6 +42,7 @@ import { AUTH_URLS } from "../utils/constants";
 import { bindPhone } from "apis/user";
 import SentryClient from "@/utils/sentry";
 import { getAppsAuthUrl } from "../utils";
+import { getActivationStatus } from "@/apis/installer";
 
 // there is no window object on the server
 enableStaticRendering(typeof window === "undefined");
@@ -91,6 +92,17 @@ class Store {
       })
     );
   }
+
+  public activationStatus = false;
+  getActivationStatus = () => {
+    getActivationStatus().then(res => {
+      if (res.code === 200) {
+        this.activationStatus = !!res?.data?.isActivation
+      }
+    })
+  }
+
+
 
   toggleTourState = () => {
     const val = !this.tourState;

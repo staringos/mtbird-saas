@@ -60,6 +60,7 @@ import Router from "next/router";
 import { useStore } from "store";
 import { observer } from "mobx-react-lite";
 import TeamVersionBadge from "../TeamVersionBadge";
+import ActivationStatus from "./ActivationStatus";
 
 const Header = observer(() => {
   const { modals, initModals, currentTeamId } = useStore();
@@ -136,7 +137,11 @@ const Header = observer(() => {
         items={menuItems}
         onClick={handleMenuChangeClick}
       />
-      <Avatar />
+
+      <div className={styles.avatar}>
+        <ActivationStatus />
+        <Avatar />
+      </div>
 
       {keys(MODALS).map((key) => {
         return modals[key] && (MODALS as any)[key];
